@@ -13,6 +13,8 @@ export default function todos(state = INITIAL_STATE, action) {
                 id: Math.random(),
                 text: action.payload.text
             }]
+        case 'REMOVE_TODO':
+            return state.filter(todo => todo.id !== action.payload.id)
         default:
             return state;
     }
